@@ -59,6 +59,11 @@ PharoPerson >> printOn: stream [
 		nextPut: $)
 ]
 
+{ #category : #converting }
+PharoPerson >> stonString [
+	^ STON toStringPretty: self
+]
+
 { #category : #accessing }
 PharoPerson >> website [
 	^ website

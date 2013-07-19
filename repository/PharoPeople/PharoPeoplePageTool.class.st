@@ -11,6 +11,11 @@ Class {
 	#category : #PharoPeople
 }
 
+{ #category : #accessing }
+PharoPeoplePageTool >> add: person [
+	data := data copyWith: person
+]
+
 { #category : #constants }
 PharoPeoplePageTool >> css [
 	^ '
