@@ -49,6 +49,9 @@ PharoConsultantPageTool >> generateEntryElementsFor: consultant [
 		self tag: #td with: [ stream << 'Pharo Experience' ].
 		self tag: #td  with: [ stream << 'since '; print: consultant pharoExperienceSince ] ].
 	self tag: #tr with: [ 
+		self tag: #td with: [ stream << 'Languages' ].
+		self tag: #td with: [ stream << consultant languages ] ].
+	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Areas Of Expertise' ].
 		self tag: #td with: [ stream << consultant areasOfExpertise ] ]
 ]
