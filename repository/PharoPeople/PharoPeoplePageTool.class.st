@@ -188,6 +188,7 @@ PharoPeoplePageTool >> removePersonWithID: id [
 
 { #category : #accessing }
 PharoPeoplePageTool >> replace: consultant [
+	data at: (data indexOf: (self data findFirst: [ :each | each id = consultant id ])) put: consultant
 	
 ]
 
