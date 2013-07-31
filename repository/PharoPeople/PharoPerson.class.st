@@ -21,8 +21,23 @@ Class {
 }
 
 { #category : #accessing }
+PharoPerson >> defaultEmail [
+	^ 'pharo-dev@lists.pharo.org'
+]
+
+{ #category : #accessing }
+PharoPerson >> defaultWebsite [
+	^ ZnUrl new
+		scheme: #http;
+		host: 'www.google.com';
+		addPathSegment: 'search';
+		queryAt: 'q' put: self name;
+		yourself
+]
+
+{ #category : #accessing }
 PharoPerson >> email [
-	^ email
+	^ email ifNil: [ self defaultEmail ]
 ]
 
 { #category : #accessing }
@@ -66,7 +81,7 @@ PharoPerson >> stonString [
 
 { #category : #accessing }
 PharoPerson >> website [
-	^ website
+	^ website ifNil: [ self defaultWebsite ]
 ]
 
 { #category : #accessing }

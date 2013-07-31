@@ -68,6 +68,11 @@ PharoContributor class >> tg [
 ]
 
 { #category : #accessing }
+PharoContributor >> defaultImage [
+	^ 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/500px-Smiley.svg.png'
+]
+
+{ #category : #accessing }
 PharoContributor >> description [
 	^ description
 ]
@@ -96,7 +101,7 @@ PharoContributor >> formForImageEntity: imageEntity [
 
 { #category : #accessing }
 PharoContributor >> image [
-	^ image
+	^ image ifNil: [ self defaultImage ]
 ]
 
 { #category : #accessing }

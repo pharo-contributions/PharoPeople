@@ -13,7 +13,7 @@ Class {
 
 { #category : #accessing }
 PharoPeoplePageTool >> add: person [
-	data := data copyWith: person
+	data := self data copyWith: person
 ]
 
 { #category : #constants }
@@ -72,7 +72,7 @@ p.footer {
 
 { #category : #accessing }
 PharoPeoplePageTool >> data [
-	^ data
+	^ data ifNil: [ Array new ]
 ]
 
 { #category : #accessing }
@@ -144,6 +144,7 @@ PharoPeoplePageTool >> generatePageFile [
 
 { #category : #public }
 PharoPeoplePageTool >> generatePageFile: file [
+	file asFileReference ensureDelete.
 	stream := file asFileReference writeStream.
 	self generatePage.
 	stream close.
@@ -180,6 +181,16 @@ PharoPeoplePageTool >> preamble [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+PharoPeoplePageTool >> removePersonWithID: id [
+	data := self data reject: [ :each | each id = id ]
+]
+
+{ #category : #accessing }
+PharoPeoplePageTool >> replace: consultant [
+	
+]
+
 { #category : #public }
 PharoPeoplePageTool >> saveToFile [
 	self saveToFile: self defaultDataFile
@@ -187,6 +198,7 @@ PharoPeoplePageTool >> saveToFile [
 
 { #category : #public }
 PharoPeoplePageTool >> saveToFile: file [
+	file asFileReference ensureDelete.
 	file asFileReference writeStreamDo: [ :out |
 		(STON writer on: out)
 			newLine: String crlf;
