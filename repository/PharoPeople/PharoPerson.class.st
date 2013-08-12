@@ -20,6 +20,17 @@ Class {
 	#category : #PharoPeople
 }
 
+{ #category : #converting }
+PharoPerson >> asSmalltalkExpression [
+	^ String streamContents: [ :out |
+		out << self class name; space; << 'new'; cr.
+		self fields do: [ :each |
+			(self instVarNamed: each)
+				ifNotNil: [ :value |
+					out tab; << each asMutator; space; print: value; nextPut: $; ; cr ] ].
+		out tab; << 'yourself'; cr ]
+]
+
 { #category : #accessing }
 PharoPerson >> defaultEmail [
 	^ 'pharo-dev@lists.pharo.org'
@@ -43,6 +54,11 @@ PharoPerson >> email [
 { #category : #accessing }
 PharoPerson >> email: anObject [
 	email := anObject
+]
+
+{ #category : #accessing }
+PharoPerson >> fields [
+	^ #( name id email website )
 ]
 
 { #category : #accessing }

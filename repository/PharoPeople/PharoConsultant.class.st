@@ -116,6 +116,11 @@ PharoConsultant >> areasOfExpertise: anObject [
 ]
 
 { #category : #accessing }
+PharoConsultant >> fields [
+	^ super fields, #( location industryExperienceSince smalltalkExperienceSince pharoExperienceSince areasOfExpertise languages )
+]
+
+{ #category : #accessing }
 PharoConsultant >> industryExperienceSince [
 	^ industryExperienceSince
 ]

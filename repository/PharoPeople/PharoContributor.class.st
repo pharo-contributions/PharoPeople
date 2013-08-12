@@ -83,6 +83,11 @@ PharoContributor >> description: anObject [
 ]
 
 { #category : #accessing }
+PharoContributor >> fields [
+	^ super fields, #( description image )
+]
+
+{ #category : #accessing }
 PharoContributor >> findImageEntity [
 	image ifNotNil: [ ^ self imageEntity ].
 	^ [ self gravatarEntity ]
