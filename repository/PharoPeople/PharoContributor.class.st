@@ -83,8 +83,16 @@ PharoContributor >> description: anObject [
 ]
 
 { #category : #accessing }
+PharoContributor >> findImageEntity [
+	image ifNotNil: [ ^ self imageEntity ].
+	^ [ self gravatarEntity ]
+		on: ZnHttpUnsuccessful 
+		do: [ self imageEntity "this will use #defaultImage now" ]
+]
+
+{ #category : #accessing }
 PharoContributor >> form [
-	^ self formForImageEntity: self imageEntity
+	^ self formForImageEntity: self findImageEntity
 ]
 
 { #category : #private }
@@ -97,6 +105,19 @@ PharoContributor >> formForImageEntity: imageEntity [
 	parserClass := Smalltalk globals at: parserClassName asSymbol.
 	parser := parserClass on: imageEntity readStream.
 	^ parser nextImage
+]
+
+{ #category : #accessing }
+PharoContributor >> gravatarEntity [
+	^ ZnClient new 
+		enforceHttpSuccess: true;
+		beOneShot; 
+		url: 'http://www.gravatar.com/avatar';
+		addPathSegment: (ZnDigestAuthenticator md5Hash: self email);
+		queryAt: #s put: '128';
+		queryAt: #d put: '404';
+		get;
+		entity
 ]
 
 { #category : #accessing }
