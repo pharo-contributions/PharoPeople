@@ -2,10 +2,6 @@
 PharoConsultantPageTool generates an HTML page listing all Pharo Consultants.
 
 PharoConsultantPageTool new
-	data: PharoConsultant demo;
-	saveToFile.
-
-PharoConsultantPageTool new
 	loadFromFile;
 	yourself.
 	

@@ -5,6 +5,7 @@ Instance Variables
 	email <String> john@foo.com
 	name <String> John Doe
 	website <String> http:://people.foo.com/john
+	id <String> johndoe
 
 
 "

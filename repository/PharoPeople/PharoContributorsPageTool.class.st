@@ -2,10 +2,6 @@
 PharoContributorsPageTool generates an HTML page listing all Pharo Contributors.
 
 PharoContributorsPageTool new
-	data: PharoContributor demo;
-	saveToFile.
-
-PharoContributorsPageTool new
 	loadFromFile;
 	yourself.
 	

@@ -3,11 +3,11 @@ PharoConsultant is a PharoPerson that offers consultancy services related to Pha
 
 Instance Variables
 	areasOfExpertise <String> web apps, GUI & compiler
-	industryExperienceSince <Integer> 2000
 	languages <String> French (native), English
 	location <String> Paris, France
 	pharoExperienceSince <Integer> 2011
 	smalltalkExperienceSInce <Integer> 2005
+	industryExperienceSince <Integer> 2000
 
 
 "

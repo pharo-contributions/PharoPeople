@@ -3,6 +3,7 @@ PharoContributor is a PharoPerson that has contributed to the Pharo Project.
 
 Instance Variables
 	description <String> Loves object systems, enjoys hacking.
+	image <String> http://me.com/picture.jpeg
 
 
 "
