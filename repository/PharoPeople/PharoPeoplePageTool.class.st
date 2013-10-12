@@ -107,12 +107,16 @@ PharoPeoplePageTool >> generateBody [
 ]
 
 { #category : #'html generation' }
-PharoPeoplePageTool >> generateEmailFor: consultant [
-	stream << '$@ join: #('.
-	($@ split: consultant email)
-		do: [ :each | stream print: each ]
-		separatedBy: [ stream space ].
-	stream << ')'
+PharoPeoplePageTool >> generateEmailFor: person [
+	| percentEncoder url |
+	percentEncoder := ZnPercentEncoder new safeSet: ''; yourself.
+	url := 'mailto:{1}' format: { percentEncoder encode: person email }.
+	self 
+		tag: #a 
+		attributes: { #href -> url } asDictionary 
+		with: [ 
+			person email do: [ :each | 
+				self tag: #span with: [ stream nextPut: each ] ] ] 
 ]
 
 { #category : #'html generation' }
