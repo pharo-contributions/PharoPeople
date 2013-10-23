@@ -226,6 +226,6 @@ ConfigurationOfPharoPeople >> version10: spec [
 	
 	spec 
 		package: 'PharoPeople' 
-		with: 'PharoPeople-StephaneDucasse.12'
+		with: 'PharoPeople-StephaneDucasse.13'
 	
 ]
