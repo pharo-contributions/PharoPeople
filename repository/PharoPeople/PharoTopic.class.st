@@ -3,9 +3,8 @@ PharoTopic describes a master or bachelor topic.
 "
 Class {
 	#name : #PharoTopic,
-	#superclass : #Object,
+	#superclass : #PharoPeopleObject,
 	#instVars : [
-		'contact',
 		'context',
 		'date',
 		'goal',
@@ -45,9 +44,21 @@ PharoTopic class >> sample [
 ]
 
 { #category : #accessing }
+PharoTopic >> contact [
+	
+	^ email
+]
+
+{ #category : #accessing }
 PharoTopic >> contact: anObject [
 	
-	contact := anObject
+	email := anObject
+]
+
+{ #category : #accessing }
+PharoTopic >> context [
+	
+	^ context
 ]
 
 { #category : #accessing }
@@ -57,15 +68,38 @@ PharoTopic >> context: anObject [
 ]
 
 { #category : #accessing }
+PharoTopic >> date [
+	
+	^ date
+]
+
+{ #category : #accessing }
 PharoTopic >> date: anObject [
 	
 	date := anObject
 ]
 
 { #category : #accessing }
+PharoTopic >> goal [
+	
+	^ goal
+]
+
+{ #category : #accessing }
 PharoTopic >> goal: anObject [
 	
 	goal := anObject
+]
+
+{ #category : #accessing }
+PharoTopic >> id [
+	^ id ifNil: [ id := (title select: [ :each | each isLetter ]) asLowercase ]
+]
+
+{ #category : #accessing }
+PharoTopic >> keywords [
+	
+	^ keywords
 ]
 
 { #category : #accessing }
@@ -83,7 +117,7 @@ PharoTopic >> printOn: aStream [
 	aStream tab << 'keywords: '.
 	aStream tab << keywords printString << ';' ; cr.
 	aStream tab << 'contact: '.
-	aStream tab << contact printString << ';' ; cr.
+	aStream tab << email printString << ';' ; cr.
 	aStream tab << 'supervisors: '.
 	aStream tab << supervisors printString << ';' ; cr.
 	aStream tab << 'context: '.
@@ -95,9 +129,21 @@ PharoTopic >> printOn: aStream [
 ]
 
 { #category : #accessing }
+PharoTopic >> supervisors [
+	
+	^ supervisors
+]
+
+{ #category : #accessing }
 PharoTopic >> supervisors: anObject [
 	
 	supervisors := anObject
+]
+
+{ #category : #accessing }
+PharoTopic >> title [
+	
+	^ title
 ]
 
 { #category : #accessing }

@@ -1,5 +1,5 @@
 "
-PharoContributorsPageTool generates an HTML page listing all Pharo Contributors.
+PharoTopicsPageTool generates an HTML page listing all topics for master and bachelor students.
 
 PharoContributorsPageTool new
 	loadFromFile;

@@ -11,12 +11,10 @@ Instance Variables
 "
 Class {
 	#name : #PharoPerson,
-	#superclass : #Object,
+	#superclass : #PharoPeopleObject,
 	#instVars : [
 		'name',
-		'email',
-		'website',
-		'id'
+		'website'
 	],
 	#category : #PharoPeople
 }
@@ -33,11 +31,6 @@ PharoPerson >> asSmalltalkExpression [
 ]
 
 { #category : #accessing }
-PharoPerson >> defaultEmail [
-	^ 'pharo-dev@lists.pharo.org'
-]
-
-{ #category : #accessing }
 PharoPerson >> defaultWebsite [
 	^ ZnUrl new
 		scheme: #http;
@@ -48,28 +41,8 @@ PharoPerson >> defaultWebsite [
 ]
 
 { #category : #accessing }
-PharoPerson >> email [
-	^ email ifNil: [ self defaultEmail ]
-]
-
-{ #category : #accessing }
-PharoPerson >> email: anObject [
-	email := anObject
-]
-
-{ #category : #accessing }
 PharoPerson >> fields [
 	^ #( name id email website )
-]
-
-{ #category : #accessing }
-PharoPerson >> id [
-	^ id ifNil: [ id := (name select: [ :each | each isLetter ]) asLowercase ]
-]
-
-{ #category : #accessing }
-PharoPerson >> id: anObject [
-	id := anObject
 ]
 
 { #category : #accessing }

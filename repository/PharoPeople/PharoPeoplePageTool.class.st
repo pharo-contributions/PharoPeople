@@ -11,7 +11,7 @@ Class {
 	#category : #PharoPeople
 }
 
-{ #category : #accessing }
+{ #category : #'adding removing' }
 PharoPeoplePageTool >> add: person [
 	data := self data copyWith: person
 ]
@@ -80,17 +80,18 @@ PharoPeoplePageTool >> data: anObject [
 	data := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #default }
 PharoPeoplePageTool >> defaultDataFile [
 	^ self defaultFile, '.ston'
 ]
 
-{ #category : #accessing }
+{ #category : #default }
 PharoPeoplePageTool >> defaultFile [
+	"returns the name of the file used to load data as well as generate html"
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #default }
 PharoPeoplePageTool >> defaultHtmlFile [
 	^ self defaultFile, '.html'
 ]
@@ -185,12 +186,12 @@ PharoPeoplePageTool >> preamble [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #'adding removing' }
 PharoPeoplePageTool >> removePersonWithID: id [
 	data := self data reject: [ :each | each id = id ]
 ]
 
-{ #category : #accessing }
+{ #category : #'adding removing' }
 PharoPeoplePageTool >> replace: person [
 	data at: (self data findFirst: [ :each | each id = person id ]) put: person
 	
