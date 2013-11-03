@@ -14,12 +14,12 @@ Class {
 	#category : #PharoPeople
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #default }
 PharoTopicsPageTool >> defaultFile [
 	^ 'pharo-topics'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'html generation' }
 PharoTopicsPageTool >> generateEntryElementsFor: topic [
 	
 	self tag: #tr with: [ 
@@ -46,7 +46,7 @@ PharoTopicsPageTool >> generateEntryElementsFor: topic [
 		self tag: #td with: [ stream << topic level ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'html generation' }
 PharoTopicsPageTool >> generateEntryFor: topic [
 	self tag: #a attributes: { #name -> topic id } asDictionary with: [   
 		self tag: #p with: [ 
@@ -55,7 +55,7 @@ PharoTopicsPageTool >> generateEntryFor: topic [
 				self generateEntryElementsFor: topic ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #constants }
 PharoTopicsPageTool >> preamble [
 	^ '<p>Bored to do a bachelor that nobody will ever look at it? </p>
 	
@@ -68,12 +68,12 @@ PharoTopicsPageTool >> preamble [
 <p class="footer">( In random order )</p>'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #constants }
 PharoTopicsPageTool >> tableColGroup [
 	^ '<colgroup><col style="text-align:left;width:25%;"/><col style="text-align:left;"/></colgroup>'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #constants }
 PharoTopicsPageTool >> title [
 	^ 'Pharo Bachelor and Master Topics'
 ]

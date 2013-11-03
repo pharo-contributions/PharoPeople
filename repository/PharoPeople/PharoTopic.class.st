@@ -137,6 +137,8 @@ PharoTopic >> printOn: aStream [
 	aStream tab << context printString << ';' ; cr.
 	aStream tab << 'goal: '.
 	aStream tab << goal printString << ';' ; cr.
+	aStream tab << 'level: '.
+	aStream tab << self level printString << ';' ; cr.
 	aStream tab << 'yourself'
 	
 ]
