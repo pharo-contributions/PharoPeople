@@ -10,7 +10,8 @@ Class {
 		'goal',
 		'keywords',
 		'supervisors',
-		'title'
+		'title',
+		'level'
 	],
 	#category : #PharoPeople
 }
@@ -106,6 +107,18 @@ PharoTopic >> keywords [
 PharoTopic >> keywords: anObject [
 	
 	keywords := anObject
+]
+
+{ #category : #accessing }
+PharoTopic >> level [
+
+	^ level ifNil: [ 'Currently undefined, we are working on it.' ]
+]
+
+{ #category : #accessing }
+PharoTopic >> level: aString [
+	
+	level := aString
 ]
 
 { #category : #printing }

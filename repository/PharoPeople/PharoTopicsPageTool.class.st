@@ -40,7 +40,10 @@ PharoTopicsPageTool >> generateEntryElementsFor: topic [
 		self tag: #td with: [ stream << topic context ] ].
 	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Goal' ].
-		self tag: #td with: [ stream << topic goal ] ]
+		self tag: #td with: [ stream << topic goal ] ].
+	self tag: #tr with: [ 
+		self tag: #td with: [ stream << 'Level' ].
+		self tag: #td with: [ stream << topic level ] ]
 ]
 
 { #category : #'as yet unclassified' }
