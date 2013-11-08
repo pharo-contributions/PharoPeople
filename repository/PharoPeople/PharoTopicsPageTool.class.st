@@ -43,7 +43,10 @@ PharoTopicsPageTool >> generateEntryElementsFor: topic [
 		self tag: #td with: [ stream << topic goal ] ].
 	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Level' ].
-		self tag: #td with: [ stream << topic level ] ]
+		self tag: #td with: [ stream << topic level ] ].
+	self tag: #tr with: [ 
+		self tag: #td with: [ stream << 'Candidate' ].
+		self tag: #td with: [ stream << topic candidate ] ]
 ]
 
 { #category : #'html generation' }
@@ -61,7 +64,7 @@ PharoTopicsPageTool >> preamble [
 	
 	<p>Do a bachelor in contact with a challenging and fun community of developers. 
 	We collected some of the topics that interest the  <a href="http://www.pharo.org">Pharo</a> community. If you are interested to get an impact and feedback and more important have fun with us, take a topic contact the author and get started. Ideally we would love that part of what you are doing gets into Pharo or one of its packages. You can also participate to the next coming book by making sure that a part of your master/bachelor describes well what you are doing.</p>
-	<p>If you have other ideas of topics or if you want to supervise one of the topics, do not hesitate to contact us</p>
+	<p>If you have other ideas of topics or if you are a teacher/researcher and you want to supervise one of the topics with us or alone, do not hesitate to contact us. We will update the list so that other people can know that you are working on this topic.</p>
 	
 <p>Pay attention Pharo is fun and it can change your life :) </p>
 <a href="http://www.pharo.org"><img src="http://www.pharo-project.org/images/pharo.png"/></a>

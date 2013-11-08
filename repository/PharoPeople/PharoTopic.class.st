@@ -11,7 +11,8 @@ Class {
 		'keywords',
 		'supervisors',
 		'title',
-		'level'
+		'level',
+		'candidate'
 	],
 	#category : #PharoPeople
 }
@@ -42,6 +43,18 @@ PharoTopic class >> sample [
 		goal: 'The goal of the project is to define a tool to support message browsing.';
 		yourself
 	
+]
+
+{ #category : #accessing }
+PharoTopic >> candidate [
+	
+	^ candidate ifNil: [ candidate := 'topics still free' ].
+]
+
+{ #category : #accessing }
+PharoTopic >> candidate: anObject [
+	
+	candidate := anObject
 ]
 
 { #category : #accessing }
@@ -139,6 +152,8 @@ PharoTopic >> printOn: aStream [
 	aStream tab << goal printString << ';' ; cr.
 	aStream tab << 'level: '.
 	aStream tab << self level printString << ';' ; cr.
+	aStream tab << 'candidate: '.
+	aStream tab << self candidate printString << ';' ; cr.
 	aStream tab << 'yourself'
 	
 ]
