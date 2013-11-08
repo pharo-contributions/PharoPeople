@@ -48,7 +48,7 @@ PharoTopic class >> sample [
 { #category : #accessing }
 PharoTopic >> candidate [
 	
-	^ candidate ifNil: [ candidate := 'topics still free' ].
+	^ candidate ifNil: [ candidate := 'Topic still free' ].
 ]
 
 { #category : #accessing }
