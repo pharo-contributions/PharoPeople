@@ -169,20 +169,14 @@ ConfigurationOfPharoPeople >> baseline10: spec [
 	spec
 		for: #pharo
 		do: [ 
-			spec blessing: #baseline.
-			spec description: 'First Full Configuration'.
-			spec author: 'StephaneDucasse'.
-			spec timestamp: '29/10/2013'.
-			spec repository: 'http://www.smalltalkhub.com/mc/Pharo/PharoPeople/main'.
 			spec
+				blessing: #baseline;
+				description: 'First Full Configuration';
+				author: 'StephaneDucasse';
+				timestamp: '29/10/2013';
+				repository: 'http://www.smalltalkhub.com/mc/Pharo/PharoPeople/main';
 				package: 'PharoPeople' with: [ spec requires: 'STON' ].
-			spec
-				project: 'STON'
-				with: [ 
-					spec
-						className: 'ConfigurationOfSTON';
-						versionString: #stable;
-						repository: 'http://www.smalltalkhub.com/mc/SvenVanCaekenberghe/STON/main' ] ]
+			self stonStable: spec ]
 ]
 
 { #category : #accessing }
@@ -194,11 +188,7 @@ ConfigurationOfPharoPeople >> customProjectAttributes [
 ConfigurationOfPharoPeople >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.2'.
-	spec for: #'pharo1.3.x' version: '1.1'.
-	spec for: #'pharo1.4.x' version: '1.3'.
-	spec for: #'pharo2.x' version: '1.5'.
-	spec for: #'pharo3.x' version: '1.5'.
+	spec for: #'common' version: '1.0'.
 ]
 
 { #category : #accessing }
@@ -214,18 +204,25 @@ ConfigurationOfPharoPeople >> project [
 		project ]
 ]
 
-{ #category : #'symbolic versions' }
-ConfigurationOfPharoPeople >> stable: spec [
-	<symbolicVersion: #stable>
-	spec for: #'pharo3.x' version: '1.0'.
+{ #category : #dependencies }
+ConfigurationOfPharoPeople >> stonStable: spec [
+	spec
+		project: 'STON'
+		with: [ 
+			spec
+				className: 'ConfigurationOfSton';
+				versionString: #stable;
+				loads: #('Core');
+				repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/STON/main' ]
 ]
 
 { #category : #versions }
-ConfigurationOfPharoPeople >> version10: spec [ 
-	<version: '1.0'> 
-	
-	spec 
-		package: 'PharoPeople' 
-		with: 'PharoPeople-StephaneDucasse.13'
-	
+ConfigurationOfPharoPeople >> version10: spec [
+	<version: '1.0' imports: #('1.0-baseline')>
+	spec
+		for: #common
+		do: [ 
+			spec
+				blessing: #development;
+				package: 'PharoPeople' with: 'PharoPeople-StephaneDucasse.13' ]
 ]
