@@ -224,5 +224,5 @@ ConfigurationOfPharoPeople >> version10: spec [
 		do: [ 
 			spec
 				blessing: #development;
-				package: 'PharoPeople' with: 'PharoPeople-StephaneDucasse.13' ]
+				package: 'PharoPeople' with: 'PharoPeople-StephaneDucasse.17' ]
 ]
