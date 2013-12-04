@@ -179,6 +179,12 @@ ConfigurationOfPharoPeople >> baseline10: spec [
 			self stonStable: spec ]
 ]
 
+{ #category : #'symbolic versions' }
+ConfigurationOfPharoPeople >> bleedingEdge: spec [
+	<symbolicVersion: #bleedingEdge>
+	spec for: #common version: '1.0-baseline'
+]
+
 { #category : #accessing }
 ConfigurationOfPharoPeople >> customProjectAttributes [
 	^ #()
