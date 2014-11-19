@@ -28,7 +28,7 @@ PharoPeopleObject >> email: anObject [
 
 { #category : #accessing }
 PharoPeopleObject >> id [
-	^ id ifNil: [ id := (name select: [ :each | each isLetter ]) asLowercase ]
+	^ id
 ]
 
 { #category : #accessing }

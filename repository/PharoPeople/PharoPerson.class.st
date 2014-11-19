@@ -46,6 +46,11 @@ PharoPerson >> fields [
 ]
 
 { #category : #accessing }
+PharoPerson >> id [
+	^ id ifNil: [ id := (name select: [ :each | each isLetter ]) asLowercase ]
+]
+
+{ #category : #accessing }
 PharoPerson >> name [
 	^ name
 ]

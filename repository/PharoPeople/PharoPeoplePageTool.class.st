@@ -25,7 +25,7 @@ body{
   background:#f7f7f7;
   background-repeat:repeat-x;
   background-position:top center;
-  background-image:url(http://www.pharo-project.org/images/body.png);
+  background-image:url(http://files.pharo.org/media/pharoBackground.png);
   font-family:"Myriad Pro","Lucida Grande","Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
 }
 p { 
@@ -178,7 +178,7 @@ PharoPeoplePageTool >> loadFromFile: file [
 
 { #category : #constants }
 PharoPeoplePageTool >> postamble [
-	^ '<img src="http://www.pharo-project.org/images/desk.jpg"/><p class="footer">Page last generated on {1} by {2}</p>' format: { DateAndTime now. SystemVersion current }
+	^ '<img src="http://pharo.org/web/files/pharo-logo-small.png"/><p class="footer">Page last generated on {1} by {2}</p>' format: { DateAndTime now. SystemVersion current }
 ]
 
 { #category : #constants }

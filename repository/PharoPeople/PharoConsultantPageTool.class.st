@@ -66,7 +66,7 @@ PharoConsultantPageTool >> preamble [
 	^ '<p>Pharo consultants can help you to successfully realise your application or project based on Pharo technology. These professionals from all over the world have experience in building great software, in flexibly using object technology and specifically in working with Pharo and all the tools in its ecosystem.</p>
 <p>These individuals are involved in the <a href="http://www.pharo.org">Pharo open source project</a> and are supporting Pharo through the <a href="http://association.pharo.org">Association</a> or <a href="http://consortium.pharo.org">Consortium</a>. Most of them have contributed to the Pharo code base or to open source frameworks and libraries running on top of Pharo.</p>
 <p>Feel free to contact them to for more information and to negotiate terms, conditions and availability.</p>
-<a href="http://www.pharo.org"><img src="http://www.pharo-project.org/images/pharo.png"/></a>
+<a href="http://www.pharo.org"><img src="http://pharo.org/web/files/pharo.png"/></a>
 <p class="footer">( In random order )</p>'
 ]
 
