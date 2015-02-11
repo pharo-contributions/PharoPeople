@@ -80,5 +80,5 @@ PharoTopicsPageTool >> tableColGroup [
 
 { #category : #constants }
 PharoTopicsPageTool >> title [
-	^ 'Pharo Bachelor and Master Topics'
+	^ 'Pharo GSOC Topics'
 ]
