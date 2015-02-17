@@ -4,15 +4,34 @@ A PharoTopicsPageTool generates a html for master and bachelor topics.
 
 PharoTopicsPageTool
 	new 
-	data: (Compiler evaluate: (ZnClient new 
-			 get: 'https://raw.github.com/pharo-project/pharo-project-proposals/master/Topics.st'));
-	generatePageFile
+	dataFromUrl: 'https://raw.github.com/pharo-project/pharo-project-proposals/master/Topics.st';
+	generatePageFile.
+
 "
 Class {
 	#name : #PharoTopicsPageTool,
 	#superclass : #PharoPeoplePageTool,
 	#category : #PharoPeople
 }
+
+{ #category : #accessing }
+PharoTopicsPageTool >> dataFromUrl: url [
+	"Assuming url points to a file containing Smalltalk expressions separated by dots on a line on their own, 
+	evaluate the objects found there and assign them to data"
+	
+	| separator fileContents in |
+	separator := '.', String lf, String lf.
+	fileContents := ZnClient new get: url.
+	data := Array streamContents: [ :out |
+		in := fileContents readStream.
+		[ | oneTopic |
+			oneTopic := (in upToAll: separator) trimBoth.
+			oneTopic isEmpty
+				ifTrue: [ false ]
+				ifFalse: [ 
+					out nextPut: (Compiler new evaluate: oneTopic).
+					true ] ] whileTrue ]
+]
 
 { #category : #default }
 PharoTopicsPageTool >> defaultFile [
