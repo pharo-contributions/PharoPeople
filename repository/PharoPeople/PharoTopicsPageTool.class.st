@@ -1,10 +1,16 @@
 "
 A PharoTopicsPageTool generates a html for master and bachelor topics.
 
-
 PharoTopicsPageTool
 	new 
 	dataFromUrl: 'https://raw.github.com/pharo-project/pharo-project-proposals/master/Topics.st';
+	generatePageFile.
+
+For debugging 
+	
+PharoTopicsPageTool
+	new 
+	dataFromFile: '/Users/sven/Develop/git/pharo-project-proposals/Topics.st';
 	generatePageFile.
 
 "
@@ -15,12 +21,31 @@ Class {
 }
 
 { #category : #accessing }
+PharoTopicsPageTool >> dataFromFile: filepath [
+	"Assuming filepath points to a file containing Smalltalk expressions separated by dots on a line on their own, 
+	evaluate the objects found there and assign them to data"
+	
+	| separator fileContents in |
+	separator := String lf, '.', String lf, String lf.
+	fileContents := filepath asFileReference contents.
+	data := Array streamContents: [ :out |
+		in := fileContents readStream.
+		[ | oneTopic |
+			oneTopic := (in upToAll: separator) trimBoth.
+			oneTopic isEmpty
+				ifTrue: [ false ]
+				ifFalse: [ 
+					out nextPut: ([ Compiler new evaluate: oneTopic ] on: Error do: [ oneTopic inspect. self halt ]).
+					true ] ] whileTrue ]
+]
+
+{ #category : #accessing }
 PharoTopicsPageTool >> dataFromUrl: url [
 	"Assuming url points to a file containing Smalltalk expressions separated by dots on a line on their own, 
 	evaluate the objects found there and assign them to data"
 	
 	| separator fileContents in |
-	separator := '.', String lf, String lf.
+	separator := String lf, '.', String lf, String lf.
 	fileContents := ZnClient new get: url.
 	data := Array streamContents: [ :out |
 		in := fileContents readStream.
