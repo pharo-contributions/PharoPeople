@@ -105,16 +105,66 @@ PharoTopicsPageTool >> generateEntryFor: topic [
 
 { #category : #constants }
 PharoTopicsPageTool >> preamble [
-	^ '<p>Bored to do a project that nobody will ever look at it? </p>
-	
-	<p>Do a project in contact with a challenging and fun community of developers. 
-	We collected some of the topics that interest the  <a href="http://www.pharo.org">Pharo</a> community. If you are interested to get an impact and feedback and more important have fun with us, take a topic contact the author and get started. Ideally we would love that part of what you are doing gets into Pharo or one of its packages. You can also participate to the next coming book.</p>
-	
-	<p>If you have other ideas of topics or if you are a teacher/researcher and you want to supervise one of the topics with us or alone, do not hesitate to contact us. We will update the list so that other people can know that you are working on this topic.</p>
-	
-<p>Pay attention Pharo is fun and it can change your life :) </p>
-<a href="http://www.pharo.org"><img src="http://www.pharo-project.org/images/pharo.png"/></a>
-<p class="footer">( In random order )</p>'
+	^  '<h1>Pharo GSOC 2016<br/>Ideas List</h1>
+
+    <p><a href="http://www.pharo.org">Pharo</a>
+      is a pure object-oriented programming
+      language and a powerful environment, focused on simplicity and
+      immediate feedback (think IDE and OS rolled into one).</p>
+
+    <h2>Guidelines</h2>
+
+    <h3>Information for Students</h3>
+
+    <p>
+    These ideas were contributed by our developers and users. They are
+    sometimes vague or incomplete. If you wish to submit a proposal based
+    on these ideas, you may wish to contact the developers and find out
+    more about the particular suggestion you''re looking at.
+    </p>
+    <p>
+    Being accepted as a Google Summer of Code student is quite
+    competitive. Accepted students typically have thoroughly researched
+    the technologies of their proposed project and have been in frequent
+    contact with potential mentors. Simply copying and pasting an idea
+    here will not work. On the other hand, creating a completely new idea
+    without first consulting potential mentors is unlikely to work out.
+    </p>
+    <p>
+    If there is no specific contact given you can ask questions on the
+    general Pharo development list
+    <a href="mailto:pharo-dev@lists.pharo.org">pharo-dev@lists.pharo.org</a>. See the
+    <a href="http://pharo.org/community">Pharo community page</a>
+    for information on available mailing lists and how to subscribe.
+    </p>
+    
+    <h3>Adding a Proposal</h3>
+
+    <p>Please propose your own project by following the following template.
+      You can edit the list on github here:
+      <a href="https://github.com/pharo-project/pharo-project-proposals/blob/master/Topics.st">https://github.com/pharo-project/pharo-project-proposals/blob/master/Topics.st</a> and send a pull request.</p>
+
+    <code><pre>
+     PharoTopic new
+       title: ''The name of your project'';
+       contact: ''email address'';
+       supervisors: ''Supervisors names'';
+       keywords: ''keywords separated by spaces'';
+       context: ''a description of the context of the project'';
+       goal: ''description of the goal'';
+       level: ''Beginner or Intermediate or Advanced'';
+       yourself.
+    </pre></code>
+
+    <h3>Administration</h3>
+    
+    <p>
+      Do not hesitate to ask questions. Administrators of this year’s
+      application are <a href="mailto:serge.stinckwich@gmail.com">Serge Stinckwich</a>, <a href="mailto:yuriy.tymchuk@me.com">Yuriy Tymchuk</a> and <a href="mailto:i.uhnak@gmail.com">Peter Uhnak</a>.
+    </p>
+    
+    <a href="http://www.pharo.org"><img src="http://www.pharo.org/files/pharo.png"/></a>
+    <p class="footer">( In random order )</p>'
 ]
 
 { #category : #constants }
