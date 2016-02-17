@@ -105,9 +105,7 @@ PharoTopicsPageTool >> generateEntryFor: topic [
 
 { #category : #constants }
 PharoTopicsPageTool >> preamble [
-	^  '<h1>Pharo GSOC 2016<br/>Ideas List</h1>
-
-    <p><a href="http://www.pharo.org">Pharo</a>
+	^  '<p><a href="http://www.pharo.org">Pharo</a>
       is a pure object-oriented programming
       language and a powerful environment, focused on simplicity and
       immediate feedback (think IDE and OS rolled into one).</p>
@@ -174,5 +172,5 @@ PharoTopicsPageTool >> tableColGroup [
 
 { #category : #constants }
 PharoTopicsPageTool >> title [
-	^ 'Pharo GSOC Topics'
+	^ 'Pharo GSOC 2016<br>Ideas List'
 ]
