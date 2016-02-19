@@ -43,6 +43,23 @@ PharoTopicsPageTool >> defaultFile [
 ]
 
 { #category : #'html generation' }
+PharoTopicsPageTool >> generateBody [
+	| shuffled |
+	shuffled := data shuffled.
+	^ self
+		tag: #body
+		with:
+			[ self tag: #h1 with: [ stream << self title ].
+			stream << self preamble.
+			self generateTocFor: shuffled.
+			shuffled
+				do: [ :each | 
+					self generateEntryFor: each.
+					stream << String crlf ].
+			stream << self postamble ]
+]
+
+{ #category : #'html generation' }
 PharoTopicsPageTool >> generateEntryElementsFor: topic [
 	
 	self tag: #tr with: [ 
@@ -82,16 +99,49 @@ PharoTopicsPageTool >> generateEntryFor: topic [
 				self generateEntryElementsFor: topic ] ] ]
 ]
 
+{ #category : #'html generation' }
+PharoTopicsPageTool >> generateTocFor: topics [
+	self
+		tag: #ul
+		with:
+			[ topics
+				do:
+					[ :each | 
+					self
+						tag: #li
+						with:
+							[ self
+								tag: #a
+								attributes: {(#href -> (self anchorForTitle: each title))} asDictionary
+								with: [ stream nextPutAll: each title ] ] ] ]
+]
+
 { #category : #constants }
 PharoTopicsPageTool >> preamble [
-	^  '<p><a href="http://www.pharo.org">Pharo</a>
+	^  '
+    <a href="http://www.pharo.org"><img src="http://www.pharo.org/files/pharo.png"/></a>
+	
+	<p><a href="http://www.pharo.org">Pharo</a>
       is a pure object-oriented programming
       language and a powerful environment, focused on simplicity and
       immediate feedback (think IDE and OS rolled into one).</p>
 
-    <h2>Guidelines</h2>
+<h2>Table of Contents</h2>
 
-    <h3>Information for Students</h3>
+<ul>
+	<li><a href="#guidelines">Guidelines</a>
+		<ul>
+			<li><a href="#for-students">Information for Students</a></li>
+			<li><a href="#adding-a-proposal">Adding a Proposal</a></li>
+			<li><a href="#admin">Administration</a></li>
+		</ul>
+		<li><a href="#topics"><b>List of Topics</b></a></li>
+	</li>
+</ul>
+
+    <h2 id="guidelines">Guidelines</h2>
+
+    <h3 id="for-students">Information for Students</h3>
 
     <p>
     These ideas were contributed by our developers and users. They are
@@ -115,7 +165,7 @@ PharoTopicsPageTool >> preamble [
     for information on available mailing lists and how to subscribe.
     </p>
     
-    <h3>Adding a Proposal</h3>
+    <h3 id="adding-a-proposal">Adding a Proposal</h3>
 
     <p>Please propose your own project by following the following template.
       You can edit the list on github here:
@@ -133,15 +183,15 @@ PharoTopicsPageTool >> preamble [
        yourself.
     </pre></code>
 
-    <h3>Administration</h3>
+    <h3 id="admin">Administration</h3>
     
     <p>
       Do not hesitate to ask questions. Administrators of this year’s
       application are <a href="mailto:serge.stinckwich@gmail.com">Serge Stinckwich</a>, <a href="mailto:yuriy.tymchuk@me.com">Yuriy Tymchuk</a> and <a href="mailto:i.uhnak@gmail.com">Peter Uhnak</a>.
     </p>
-    
-    <a href="http://www.pharo.org"><img src="http://www.pharo.org/files/pharo.png"/></a>
-    <p class="footer">( In random order )</p>'
+
+<h2 id="topics">List of Topics</h2>
+'
 ]
 
 { #category : #constants }
