@@ -190,7 +190,7 @@ PharoTopicsPageTool >> preamble [
       application are <a href="mailto:serge.stinckwich@gmail.com">Serge Stinckwich</a>, <a href="mailto:yuriy.tymchuk@me.com">Yuriy Tymchuk</a> and <a href="mailto:i.uhnak@gmail.com">Peter Uhnak</a>.
     </p>
 
-<h2 id="topics">List of Topics</h2>
+<h2 id="topics">Pharo GSOC Topics</h2>
 '
 ]
 
