@@ -65,7 +65,7 @@ PharoTopicsPageTool >> generateEntryElementsFor: topic [
 	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Title' ].
 		self tag: #td with: [ 
-			self tag: #span attributes: { #class -> 'cn' } asDictionary with: [ stream << topic title ] ] ].
+			self tag: #span attributes: { #class -> 'cn' . #id -> ('topic-' , (self anchorForTitle: topic title)) } asDictionary with: [ stream << topic title ] ] ].
 	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Email' ].
 		self tag: #td with: [ self generateEmailFor: topic ] ]. 
@@ -112,7 +112,7 @@ PharoTopicsPageTool >> generateTocFor: topics [
 						with:
 							[ self
 								tag: #a
-								attributes: {(#href -> (self anchorForTitle: each title))} asDictionary
+								attributes: {(#href -> ('#topic-' , (self anchorForTitle: each title)))} asDictionary
 								with: [ stream nextPutAll: each title ] ] ] ]
 ]
 
