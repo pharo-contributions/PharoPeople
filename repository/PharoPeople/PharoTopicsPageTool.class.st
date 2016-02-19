@@ -21,41 +21,20 @@ Class {
 }
 
 { #category : #accessing }
-PharoTopicsPageTool >> dataFromFile: filepath [
-	"Assuming filepath points to a file containing Smalltalk expressions separated by dots on a line on their own, 
-	evaluate the objects found there and assign them to data"
-	
-	| separator fileContents in |
-	separator := String lf, '.', String lf, String lf.
-	fileContents := filepath asFileReference contents.
-	data := Array streamContents: [ :out |
-		in := fileContents readStream.
-		[ | oneTopic |
-			oneTopic := (in upToAll: separator) trimBoth.
-			oneTopic isEmpty
-				ifTrue: [ false ]
-				ifFalse: [ 
-					out nextPut: ([ Compiler new evaluate: oneTopic ] on: Error do: [ oneTopic inspect. self halt ]).
-					true ] ] whileTrue ]
+PharoTopicsPageTool >> dataFromFile: aFilePath [
+	self dataFromStream: aFilePath asFileReference
+]
+
+{ #category : #accessing }
+PharoTopicsPageTool >> dataFromStream: aStream [
+	| ast |
+	ast := RBParser parseExpression: aStream contents.
+	data := ast statements collect: [ :each | OpalCompiler evaluate: each formattedCode ]
 ]
 
 { #category : #accessing }
 PharoTopicsPageTool >> dataFromUrl: url [
-	"Assuming url points to a file containing Smalltalk expressions separated by dots on a line on their own, 
-	evaluate the objects found there and assign them to data"
-	
-	| separator fileContents in |
-	separator := String lf, '.', String lf, String lf.
-	fileContents := ZnClient new get: url.
-	data := Array streamContents: [ :out |
-		in := fileContents readStream.
-		[ | oneTopic |
-			oneTopic := (in upToAll: separator) trimBoth.
-			oneTopic isEmpty
-				ifTrue: [ false ]
-				ifFalse: [ 
-					out nextPut: (Compiler new evaluate: oneTopic).
-					true ] ] whileTrue ]
+	self dataFromStream: (ZnClient new get: url)
 ]
 
 { #category : #default }
