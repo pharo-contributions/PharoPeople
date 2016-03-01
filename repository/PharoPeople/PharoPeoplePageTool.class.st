@@ -89,6 +89,21 @@ PharoPeoplePageTool >> data: anObject [
 	data := anObject
 ]
 
+{ #category : #accessing }
+PharoPeoplePageTool >> dataFromFile: aFilePath [
+	self dataFromStream: aFilePath asFileReference
+]
+
+{ #category : #accessing }
+PharoPeoplePageTool >> dataFromStream: aStream [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+PharoPeoplePageTool >> dataFromUrl: url [
+	self dataFromStream: (ZnClient new get: url) readStream
+]
+
 { #category : #default }
 PharoPeoplePageTool >> defaultDataFile [
 	^ self defaultFile, '.ston'

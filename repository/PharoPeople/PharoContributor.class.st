@@ -98,6 +98,8 @@ PharoContributor >> findImageEntity [
 
 { #category : #accessing }
 PharoContributor >> form [
+	image
+		ifNil: [ ^ PNGReadWriter formFromStream: '/tmp/smiley.png' asFileReference readStream ].
 	^ self formForImageEntity: self findImageEntity
 ]
 

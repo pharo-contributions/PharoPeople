@@ -1,27 +1,29 @@
 "
-PharoConsultantPageTool generates an HTML page listing all Pharo Consultants.
+PharoConsultantsPageTool generates an HTML page listing all Pharo Consultants.
 
-PharoConsultantPageTool new
-	loadFromFile;
-	yourself.
-	
-PharoConsultantPageTool new
-	loadFromFile;
-	generatePageFile.
+PharoConsultantPageTool
+	new 
+	dataFromUrl: 'https://raw.githubusercontent.com/pharo-project/pharo-project-consultants/master/pharo-consultants.ston';
+	generatePageFile
 "
 Class {
-	#name : #PharoConsultantPageTool,
+	#name : #PharoConsultantsPageTool,
 	#superclass : #PharoPeoplePageTool,
 	#category : #PharoPeople
 }
 
 { #category : #accessing }
-PharoConsultantPageTool >> defaultFile [
+PharoConsultantsPageTool >> dataFromStream: aStream [
+	data := STON fromStream: aStream
+]
+
+{ #category : #accessing }
+PharoConsultantsPageTool >> defaultFile [
 	^ 'pharo-consultants'
 ]
 
 { #category : #'html generation' }
-PharoConsultantPageTool >> generateEntryElementsFor: consultant [
+PharoConsultantsPageTool >> generateEntryElementsFor: consultant [
 	self tag: #tr with: [ 
 		self tag: #td with: [ stream << 'Name' ].
 		self tag: #td with: [ 
@@ -53,7 +55,7 @@ PharoConsultantPageTool >> generateEntryElementsFor: consultant [
 ]
 
 { #category : #'html generation' }
-PharoConsultantPageTool >> generateEntryFor: consultant [
+PharoConsultantsPageTool >> generateEntryFor: consultant [
 	self tag: #a attributes: { #name -> consultant id } asDictionary with: [   
 		self tag: #p with: [ 
 			self tag: #table with: [ 
@@ -62,7 +64,7 @@ PharoConsultantPageTool >> generateEntryFor: consultant [
 ]
 
 { #category : #constants }
-PharoConsultantPageTool >> preamble [
+PharoConsultantsPageTool >> preamble [
 	^ '<p>Pharo consultants can help you to successfully realise your application or project based on Pharo technology. These professionals from all over the world have experience in building great software, in flexibly using object technology and specifically in working with Pharo and all the tools in its ecosystem.</p>
 <p>These individuals are involved in the <a href="http://www.pharo.org">Pharo open source project</a> and are supporting Pharo through the <a href="http://association.pharo.org">Association</a> or <a href="http://consortium.pharo.org">Consortium</a>. Most of them have contributed to the Pharo code base or to open source frameworks and libraries running on top of Pharo.</p>
 <p>Feel free to contact them to for more information and to negotiate terms, conditions and availability.</p>
@@ -71,11 +73,11 @@ PharoConsultantPageTool >> preamble [
 ]
 
 { #category : #constants }
-PharoConsultantPageTool >> tableColGroup [
+PharoConsultantsPageTool >> tableColGroup [
 	^ '<colgroup><col style="text-align:left;width:25%;"/><col style="text-align:left;"/></colgroup>'
 ]
 
 { #category : #constants }
-PharoConsultantPageTool >> title [
+PharoConsultantsPageTool >> title [
 	^ 'Pharo Consultants'
 ]

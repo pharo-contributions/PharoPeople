@@ -1,19 +1,21 @@
 "
 PharoTopicsPageTool generates an HTML page listing all topics for master and bachelor students.
 
-PharoContributorsPageTool new
-	loadFromFile;
-	yourself.
-	
-PharoContributorsPageTool new
-	loadFromFile;
-	generatePageFile.
+PharoContributorsPageTool
+	new 
+	dataFromUrl: 'https://raw.githubusercontent.com/pharo-project/pharo-project-contributors/master/pharo-contributors.ston';
+	generatePageFile
 "
 Class {
 	#name : #PharoContributorsPageTool,
 	#superclass : #PharoPeoplePageTool,
 	#category : #PharoPeople
 }
+
+{ #category : #accessing }
+PharoContributorsPageTool >> dataFromStream: aStream [
+	data := STON fromStream: aStream
+]
 
 { #category : #accessing }
 PharoContributorsPageTool >> defaultFile [
@@ -61,7 +63,7 @@ PharoContributorsPageTool >> generateEntryFor: contributor [
 PharoContributorsPageTool >> preamble [
 	^ '<p>These are some of the individuals from all over the world that have contributed to <a href="http://www.pharo.org">Pharo</a> over the years. They filed issues, fixed bugs and generally cleaned up code. They wrote documentation, answered questions on the mailing lists and wrote whole new subsystems.</p>
 <p>Thank you !</p>
-<a href="http://www.pharo.org"><img src="http://www.pharo-project.org/images/pharo.png"/></a>
+<a href="http://www.pharo.org"><img src="http://www.pharo.org/files/pharo.png"/></a>
 <p class="footer">( In random order )</p>'
 ]
 

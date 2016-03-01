@@ -19,20 +19,10 @@ Class {
 }
 
 { #category : #accessing }
-PharoTopicsMdPageTool >> dataFromFile: aFilePath [
-	self dataFromStream: aFilePath asFileReference
-]
-
-{ #category : #accessing }
 PharoTopicsMdPageTool >> dataFromStream: aStream [
 	| ast |
 	ast := RBParser parseExpression: aStream contents.
 	data := ast statements collect: [ :each | OpalCompiler evaluate: each formattedCode ]
-]
-
-{ #category : #accessing }
-PharoTopicsMdPageTool >> dataFromUrl: url [
-	self dataFromStream: (ZnClient new get: url)
 ]
 
 { #category : #default }
