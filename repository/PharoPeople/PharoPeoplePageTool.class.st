@@ -91,7 +91,7 @@ PharoPeoplePageTool >> data: anObject [
 
 { #category : #accessing }
 PharoPeoplePageTool >> dataFromFile: aFilePath [
-	self dataFromStream: aFilePath asFileReference
+	self dataFromStream: aFilePath asFileReference readStream
 ]
 
 { #category : #accessing }

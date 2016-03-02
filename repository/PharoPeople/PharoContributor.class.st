@@ -109,7 +109,6 @@ PharoContributor >> findImageEntity [
 
 { #category : #accessing }
 PharoContributor >> form [
-	image ifNil: [ ^ self defaultForm ].
 	^ self formForImageEntity: self findImageEntity
 ]
 
