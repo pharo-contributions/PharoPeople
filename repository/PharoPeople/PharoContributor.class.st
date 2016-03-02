@@ -109,7 +109,10 @@ PharoContributor >> findImageEntity [
 
 { #category : #accessing }
 PharoContributor >> form [
-	^ self formForImageEntity: self findImageEntity
+	"Use defaultForm until image caching is added."
+	^ self defaultForm
+"	image ifNil: [ ^ self defaultForm ].
+	^ self formForImageEntity: self findImageEntity"
 ]
 
 { #category : #private }
