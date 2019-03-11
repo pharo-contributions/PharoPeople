@@ -173,10 +173,11 @@ PharoPeoplePageTool >> generatePageFile [
 
 { #category : #public }
 PharoPeoplePageTool >> generatePageFile: file [
-	file asFileReference ensureDelete.
-	stream := file asFileReference writeStream.
-	self generatePage.
-	stream close.
+	file asFileReference
+		ensureDelete;
+		writeStreamDo: [ :s | 
+			stream := s.
+			self generatePage ]
 ]
 
 { #category : #'html generation' }
