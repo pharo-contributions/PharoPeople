@@ -4,7 +4,9 @@ SmalltalkCISpec {
       #baseline : 'PharoPeople',
       #directory : 'repository',
       #platforms : [ #pharo ],
-      #failOnZeroTests : false
+      #testing : {
+        #failOnZeroTests : false
+      }
     }
   ]
 }
