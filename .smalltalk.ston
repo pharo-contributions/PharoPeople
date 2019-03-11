@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'PharoPeople',
+      #directory : 'repository',
+      #platforms : [ #pharo ]
+    }
+  ]
+}
